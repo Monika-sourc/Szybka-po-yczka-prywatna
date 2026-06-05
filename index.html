@@ -17,20 +17,41 @@
             --border: #e2e8f0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg);
             color: var(--primary);
             line-height: 1.6;
+            /* IMAGE DE FOND */
+            background: url('IMG_20260605_230701_978.png') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Overlay pour lisibilité */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 250, 252, 0.92);
+            z-index: -1;
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
         
         /* Header */
         .header {
-            background: var(--white);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
             padding: 20px 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .logo {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -60,12 +81,14 @@
         }
         .hero p { font-size: 1.1rem; color: #64748b; margin-bottom: 30px; }
         
-        /* RECOMMANDATIONS - NOUVELLE SECTION */
-        .recommendations {
-            background: linear-gradient(135deg, #fef3c7, #ffffff);
+        /* Section Preuves Virement */
+        .proof-section {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
             padding: 40px 0;
             margin: 40px 0;
             border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
         .section-title {
             text-align: center;
@@ -78,7 +101,80 @@
             text-align: center;
             color: #64748b;
             margin-bottom: 40px;
-            font-size: 1rem;
+        }
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+        .proof-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid var(--success);
+        }
+        .proof-card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+        }
+        .proof-badge {
+            background: #dcfce7;
+            color: var(--success);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Section Carte */
+        .card-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 50px 0;
+            margin: 40px 0;
+            border-radius: 24px;
+            color: var(--white);
+        }
+        .card-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .card-flex img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .card-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .card-content p { color: #cbd5e1; margin-bottom: 20px; }
+        .card-features { list-style: none; }
+        .card-features li {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-features i { color: var(--accent); }
+        
+        /* Témoignages */
+        .recommendations {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 0;
+            margin: 40px 0;
+            border-radius: 24px;
         }
         .testi-grid {
             display: grid;
@@ -107,40 +203,17 @@
         }
         .testi-name { font-weight: 700; color: var(--primary); }
         .testi-role { font-size: 0.85rem; color: #64748b; }
-        .stars { color: #fbbf24; margin-bottom: 12px; font-size: 1.1rem; }
-        .testi-text { 
-            font-size: 0.95rem; 
-            line-height: 1.6; 
-            color: #334155;
-            margin-bottom: 16px;
-        }
-        .testi-proof {
-            background: #f0fdf4;
-            border-radius: 12px;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--success);
-        }
-        .trust-badge {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-        .trust-badge i { color: var(--accent); margin: 0 4px; }
+        .stars { color: #fbbf24; margin-bottom: 12px; }
+        .testi-text { font-size: 0.95rem; line-height: 1.6; color: #334155; }
         
         /* Form */
         .form-box {
-            background: var(--white);
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
             border-radius: 24px;
             padding: 40px;
-            box-shadow: 0 20px 50px -10px rgba(0,0,0,0.1);
-            border: 1px solid var(--border);
-            margin-top: 40px;
+            box-shadow: 0 20px 50px -10px rgba(0,0,0,0.15);
+            margin: 40px 0;
         }
         .form-box h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -197,24 +270,18 @@
             box-shadow: 0 15px 30px -10px rgba(245,158,11,0.5);
             background: linear-gradient(135deg, var(--accent), #d97706);
         }
-        .info-box {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 16px;
-            border-radius: 12px;
-            margin-top: 24px;
-            font-size: 0.9rem;
-        }
         
         footer {
             text-align: center;
             padding: 40px 0;
             color: #64748b;
             font-size: 0.85rem;
+            background: rgba(255,255,255,0.9);
+            margin-top: 40px;
         }
         
         @media (max-width: 640px) {
-            .form-grid { grid-template-columns: 1fr; }
+            .form-grid, .card-flex { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2rem; }
             .form-box { padding: 30px 24px; }
         }
@@ -230,9 +297,57 @@
 
 <section class="hero">
     <div class="container">
-        <div class="badge"><i class="fas fa-check-circle"></i> Przelew w 15 minut</div>
+        <div class="badge"><i class="fas fa-check-circle"></i> Przelew w 15 minut gwarantowany</div>
         <h1>Pożyczka online od <span style="color:var(--accent);">3 000 zł</span></h1>
         <p>Wypełnij wniosek. Otrzymasz pieniądze na konto w 15 minut po akceptacji.</p>
+    </div>
+</section>
+
+<!-- SECTION PREUVES DE VIREMENT -->
+<section class="proof-section">
+    <div class="container">
+        <h2 class="section-title">Dowody przelewów wysłanych 💸</h2>
+        <p class="section-subtitle">Prawdziwe zrzuty ekranu z przelewów wykonanych dla naszych klientów</p>
+        
+        <div class="proof-grid">
+            <div class="proof-card">
+                <img src="00000000870072309a90e1c669b171ce.png" alt="Dowód przelewu 1">
+                <div class="proof-badge">
+                    <i class="fas fa-check-circle"></i>
+                    Przelew wysłany | 14.05.2025
+                </div>
+            </div>
+            
+            <div class="proof-card">
+                <img src="00000000870072309a90e1c669b171ce.png" alt="Dowód przelewu 2">
+                <div class="proof-badge">
+                    <i class="fas fa-check-circle"></i>
+                    Przelew wysłany | 02.06.2025
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION CARTE -->
+<section class="card-section">
+    <div class="container">
+        <div class="card-flex">
+            <div>
+                <img src="IMG_20260520_134844_336.png" alt="Karta FinanceExpress">
+            </div>
+            <div class="card-content">
+                <h3>Karta FinanceExpress Premium 💳</h3>
+                <p>Otrzymaj naszą kartę debetową po zatwierdzeniu pożyczki. Wypłacaj gotówkę bez prowizji.</p>
+                <ul class="card-features">
+                    <li><i class="fas fa-check"></i> Wypłaty z bankomatów 0% prowizji</li>
+                    <li><i class="fas fa-check"></i> Płatności zbliżeniowe w całej Europie</li>
+                    <li><i class="fas fa-check"></i> Cashback 1% na wszystkie zakupy</li>
+                    <li><i class="fas fa-check"></i> Limit do 50 000 zł</li>
+                    <li><i class="fas fa-check"></i> Aplikacja mobilna 24/7</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -243,7 +358,6 @@
         <p class="section-subtitle">Prawdziwe opinie klientów, którzy dostali przelew w 15 minut</p>
         
         <div class="testi-grid">
-            <!-- Témoignage 1 -->
             <div class="testi-card">
                 <div class="testi-header">
                     <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Klient" class="testi-avatar">
@@ -256,13 +370,8 @@
                 <div class="testi-text">
                     "Potrzebowałem 12 000 zł na pilny remont. Wniosek o 9:15, pieniądze na koncie o 9:28! Zero problemów. Polecam każdemu!"
                 </div>
-                <div class="testi-proof">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Przelew 12 000 zł | 14.05.2025 09:28</span>
-                </div>
             </div>
             
-            <!-- Témoignage 2 -->
             <div class="testi-card">
                 <div class="testi-header">
                     <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Klientka" class="testi-avatar">
@@ -275,13 +384,8 @@
                 <div class="testi-text">
                     "Wzięłam 8 500 zł na wesele córki. Cały proces online, bez zaświadczeń. Przelew przyszedł w 12 minut. Niesamowite!"
                 </div>
-                <div class="testi-proof">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Przelew 8 500 zł | 02.06.2025 14:12</span>
-                </div>
             </div>
             
-            <!-- Témoignage 3 -->
             <div class="testi-card">
                 <div class="testi-header">
                     <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Klient" class="testi-avatar">
@@ -294,20 +398,12 @@
                 <div class="testi-text">
                     "Banki odmówiły. Tutaj dostałem 25 000 zł bez problemu. Rata 520 zł miesięcznie. Obsługa na najwyższym poziomie!"
                 </div>
-                <div class="testi-proof">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Przelew 25 000 zł | 28.05.2025 11:45</span>
-                </div>
             </div>
-        </div>
-        
-        <div class="trust-badge">
-            <i class="fas fa-shield-check"></i> Ponad 3 200 zadowolonych klientów 
-            <i class="fas fa-star"></i> Średnia ocena 4.9/5
         </div>
     </div>
 </section>
 
+<!-- FORMULAIRE -->
 <section class="container">
     <div class="form-box">
         <h2>Złóż wniosek teraz</h2>
@@ -381,10 +477,6 @@
             <button type="submit" class="btn-submit">
                 <i class="fas fa-paper-plane"></i> Wyślij wniosek przez Gmail
             </button>
-            
-            <div class="info-box">
-                <i class="fas fa-info-circle"></i> <strong>Jak to działa:</strong> Po kliknięciu otworzy się Gmail z wiadomością już wypełnioną. Kliknij "Wyślij" w Gmail żeby wysłać wniosek do nas.
-            </div>
         </form>
     </div>
 </section>
