@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceExpress | Pożyczka 15 min | Polecają nas klienci</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #f59e0b;
+            --success: #059669;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .logo span { color: var(--accent); }
+        
+        /* Hero */
+        .hero { padding: 50px 0 30px; text-align: center; }
+        .badge {
+            background: #dcfce7;
+            color: #166534;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .hero p { font-size: 1.1rem; color: #64748b; margin-bottom: 30px; }
+        
+        /* RECOMMANDATIONS - NOUVELLE SECTION */
+        .recommendations {
+            background: linear-gradient(135deg, #fef3c7, #ffffff);
+            padding: 40px 0;
+            margin: 40px 0;
+            border-radius: 24px;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .testi-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--success);
+        }
+        .testi-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .testi-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--success);
+        }
+        .testi-name { font-weight: 700; color: var(--primary); }
+        .testi-role { font-size: 0.85rem; color: #64748b; }
+        .stars { color: #fbbf24; margin-bottom: 12px; font-size: 1.1rem; }
+        .testi-text { 
+            font-size: 0.95rem; 
+            line-height: 1.6; 
+            color: #334155;
+            margin-bottom: 16px;
+        }
+        .testi-proof {
+            background: #f0fdf4;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--success);
+        }
+        .trust-badge {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        .trust-badge i { color: var(--accent); margin: 0 4px; }
+        
+        /* Form */
+        .form-box {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 50px -10px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        .form-box h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .form-box > p {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.9rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), #1e293b);
+            color: var(--white);
+            width: 100%;
+            padding: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -10px rgba(245,158,11,0.5);
+            background: linear-gradient(135deg, var(--accent), #d97706);
+        }
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 24px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 640px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .form-box { padding: 30px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">FINANCE<span>EXPRESS</span> <i class="fas fa-bolt" style="color:var(--accent);"></i></div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <div class="badge"><i class="fas fa-check-circle"></i> Przelew w 15 minut</div>
+        <h1>Pożyczka online od <span style="color:var(--accent);">3 000 zł</span></h1>
+        <p>Wypełnij wniosek. Otrzymasz pieniądze na konto w 15 minut po akceptacji.</p>
+    </div>
+</section>
+
+<!-- SECTION RECOMMANDATIONS -->
+<section class="recommendations">
+    <div class="container">
+        <h2 class="section-title">Otrzymali pożyczkę i polecają nas ⭐</h2>
+        <p class="section-subtitle">Prawdziwe opinie klientów, którzy dostali przelew w 15 minut</p>
+        
+        <div class="testi-grid">
+            <!-- Témoignage 1 -->
+            <div class="testi-card">
+                <div class="testi-header">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Klient" class="testi-avatar">
+                    <div>
+                        <div class="testi-name">Marek Kowalczyk</div>
+                        <div class="testi-role">Kraków</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="testi-text">
+                    "Potrzebowałem 12 000 zł na pilny remont. Wniosek o 9:15, pieniądze na koncie o 9:28! Zero problemów. Polecam każdemu!"
+                </div>
+                <div class="testi-proof">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Przelew 12 000 zł | 14.05.2025 09:28</span>
+                </div>
+            </div>
+            
+            <!-- Témoignage 2 -->
+            <div class="testi-card">
+                <div class="testi-header">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Klientka" class="testi-avatar">
+                    <div>
+                        <div class="testi-name">Anna Wiśniewska</div>
+                        <div class="testi-role">Warszawa</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="testi-text">
+                    "Wzięłam 8 500 zł na wesele córki. Cały proces online, bez zaświadczeń. Przelew przyszedł w 12 minut. Niesamowite!"
+                </div>
+                <div class="testi-proof">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Przelew 8 500 zł | 02.06.2025 14:12</span>
+                </div>
+            </div>
+            
+            <!-- Témoignage 3 -->
+            <div class="testi-card">
+                <div class="testi-header">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Klient" class="testi-avatar">
+                    <div>
+                        <div class="testi-name">Piotr Nowak</div>
+                        <div class="testi-role">Gdańsk</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="testi-text">
+                    "Banki odmówiły. Tutaj dostałem 25 000 zł bez problemu. Rata 520 zł miesięcznie. Obsługa na najwyższym poziomie!"
+                </div>
+                <div class="testi-proof">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Przelew 25 000 zł | 28.05.2025 11:45</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="trust-badge">
+            <i class="fas fa-shield-check"></i> Ponad 3 200 zadowolonych klientów 
+            <i class="fas fa-star"></i> Średnia ocena 4.9/5
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="form-box">
+        <h2>Złóż wniosek teraz</h2>
+        <p>Wypełnij formularz. Otworzy się Gmail z wiadomością gotową do wysłania.</p>
+        
+        <form id="loanForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Imię *</label>
+                    <input type="text" id="imie" required placeholder="Jan">
+                </div>
+                <div class="form-group">
+                    <label>Nazwisko *</label>
+                    <input type="text" id="nazwisko" required placeholder="Kowalski">
+                </div>
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>E-mail *</label>
+                    <input type="email" id="email" required placeholder="jan@email.pl">
+                </div>
+                <div class="form-group">
+                    <label>Telefon *</label>
+                    <input type="tel" id="telefon" required placeholder="+48 500 600 700">
+                </div>
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Kwota pożyczki (zł) *</label>
+                    <input type="number" id="kwota" min="3000" required placeholder="15000">
+                </div>
+                <div class="form-group">
+                    <label>Okres spłaty *</label>
+                    <select id="okres" required>
+                        <option value="">Wybierz okres</option>
+                        <option value="6 miesięcy">6 miesięcy</option>
+                        <option value="12 miesięcy">12 miesięcy</option>
+                        <option value="24 miesiące">24 miesiące</option>
+                        <option value="36 miesięcy">36 miesięcy</option>
+                        <option value="60 miesięcy">60 miesięcy</option>
+                        <option value="120 miesięcy">120 miesięcy</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Rodzaj pożyczki *</label>
+                <select id="typ" required>
+                    <option value="">Wybierz rodzaj</option>
+                    <option>Pożyczka gotówkowa</option>
+                    <option>Pożyczka hipoteczna</option>
+                    <option>Kredyt samochodowy</option>
+                    <option>Pożyczka firmowa</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Cel pożyczki</label>
+                <textarea id="cel" rows="3" placeholder="Np. remont, wakacje, konsolidacja..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label style="display:flex; align-items:start; gap:10px; font-weight:400; font-size:0.9rem;">
+                    <input type="checkbox" id="zgoda" required style="width:auto; margin-top:3px;">
+                    <span>Akceptuję regulamin i wyrażam zgodę na przetwarzanie danych osobowych. *</span>
+                </label>
+            </div>
+            
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Wyślij wniosek przez Gmail
+            </button>
+            
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i> <strong>Jak to działa:</strong> Po kliknięciu otworzy się Gmail z wiadomością już wypełnioną. Kliknij "Wyślij" w Gmail żeby wysłać wniosek do nas.
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 FinanceExpress | RRSO od 7,2% | Przykład: 10 000 zł / 12 mies. = rata 885 zł</p>
+        <p style="margin-top:10px;">Kredyt konsumencki. Zastanów się, czy Cię na to stać.</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('loanForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const imie = document.getElementById('imie').value.trim();
+        const nazwisko = document.getElementById('nazwisko').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefon = document.getElementById('telefon').value.trim();
+        const kwota = document.getElementById('kwota').value.trim();
+        const okres = document.getElementById('okres').value;
+        const typ = document.getElementById('typ').value;
+        const cel = document.getElementById('cel').value.trim() || "Nie podano";
+        const zgoda = document.getElementById('zgoda').checked;
+        
+        if (!imie || !nazwisko || !email || !telefon || !kwota || !okres || !typ) {
+            alert("Proszę wypełnić wszystkie pola wymagane *");
+            return;
+        }
+        if (parseInt(kwota) < 3000) {
+            alert("Minimalna kwota pożyczki to 3 000 zł");
+            return;
+        }
+        if (!zgoda) {
+            alert("Musisz zaakceptować zgodę na przetwarzanie danych");
+            return;
+        }
+        
+        const temat = `WNIOSEK POŻYCZKA - ${imie} ${nazwisko} - ${parseInt(kwota).toLocaleString('pl-PL')} zł`;
+        
+        const tresc = `Dzień dobry,
+
+Składam wniosek o pożyczkę przez stronę FinanceExpress.
+
+=== DANE WNIOSKODAWCY ===
+Imię i nazwisko: ${imie} ${nazwisko}
+E-mail: ${email}
+Telefon: ${telefon}
+
+=== SZCZEGÓŁY POŻYCZKI ===
+Kwota wnioskowana: ${parseInt(kwota).toLocaleString('pl-PL')} zł
+Okres spłaty: ${okres}
+Rodzaj pożyczki: ${typ}
+Cel pożyczki: ${cel}
+
+=== ZGODY ===
+Wyrażam zgodę na przetwarzanie moich danych osobowych w celu rozpatrzenia wniosku kredytowego zgodnie z RODO.
+
+---
+Wniosek wysłany: ${new Date().toLocaleString('pl-PL')}
+Źródło: Formularz online FinanceExpress
+
+Proszę o kontakt w celu finalizacji wniosku i przelew środków.
+
+Pozdrawiam,
+${imie} ${nazwisko}`;
+        
+        const emailDocelowy = "noreply.kontakt.pl@gmail.com";
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailDocelowy)}&su=${encodeURIComponent(temat)}&body=${encodeURIComponent(tresc)}`;
+        
+        window.open(gmailUrl, '_blank');
+    });
+</script>
+
+</body>
+</html>
