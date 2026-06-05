@@ -36,23 +36,38 @@
             z-index: -1;
         }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        
+        /* Header avec 2 logos */
         .header {
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
         }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-left img {
+            height: 45px;
+            width: auto;
+        }
         .logo {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary);
         }
         .logo span { color: var(--accent); }
+        .logo-right img {
+            height: 45px;
+            width: auto;
+        }
+        
         .hero { padding: 50px 0 30px; text-align: center; }
         .badge {
             background: #dcfce7;
@@ -271,6 +286,7 @@
             .form-grid, .card-flex { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2rem; }
             .form-box { padding: 30px 24px; }
+            .header-flex { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -278,7 +294,20 @@
 
 <header class="header">
     <div class="container">
-        <div class="logo">FINANCE<span>EXPRESS</span> <i class="fas fa-bolt" style="color:var(--accent);"></i></div>
+        <div class="header-flex">
+            <!-- LOGO GAUCHE -->
+            <div class="logo-left">
+                <img src="7a6898f73cd7a6aace48d3358810b49b.jpg" alt="Logo Gauche">
+            </div>
+            
+            <!-- TEXTE CENTRE -->
+            <div class="logo">FINANCE<span>EXPRESS</span> <i class="fas fa-bolt" style="color:var(--accent);"></i></div>
+            
+            <!-- LOGO DROITE -->
+            <div class="logo-right">
+                <img src="IMG_20260605_235014_385.png" alt="Logo Droite">
+            </div>
+        </div>
     </div>
 </header>
 
@@ -319,7 +348,8 @@
     <div class="container">
         <div class="card-flex">
             <div>
-                <img src="file_000000001a871fd9aa470aea3ff9416.png" alt="Karta FinanceExpress">
+                <!-- NOUVELLE IMAGE DE CARTE -->
+                <img src="8eb543ba6435a56d1d34c71d53efe98c.jpg" alt="Karta FinanceExpress">
             </div>
             <div class="card-content">
                 <h3>Karta FinanceExpress Premium 💳</h3>
