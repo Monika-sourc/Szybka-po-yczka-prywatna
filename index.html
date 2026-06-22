@@ -166,7 +166,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <!-- Suppression de l'ancien logo. Démarrage direct avec le premier des 4 nouveaux logos. -->
+                    <!-- Les 4 logos tournent toutes les 30 secondes -->
                     <img id="main-logo" src="https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032548~2.png" alt="Logo" class="logo-img-header">
                     <i class="fas fa-bolt"></i> FinanceExpress
                 </a>
@@ -196,7 +196,8 @@
                     <div class="hero-badge">Decyzja w 15 minut!</div>
                     <h1 class="hero-title">Szybka pożyczka prywatna online</h1>
                     <p class="hero-subtitle">Potrzebujesz gotówki na dowolny cel? Wypełnij wniosek i otrzymaj pieniądze nawet w ciągu 24 godzin. Bez wychodzenia z domu, bez zbędnych formalności.</p>
-                    <img src="8eb543ba6435a56d1d34c71d53efe98c.jpg" alt="Karta bankowa" class="card-img-hero">
+                    <!-- NOUVELLE CARTE BANCAIRE -->
+                    <img src="IMG_20260622_030751_134.png" alt="Karta bankowa" class="card-img-hero">
                     <div class="trust-badges">
                         <div class="trust-badge"><i class="fas fa-shield-alt"></i> 100% Bezpiecznie</div>
                         <div class="trust-badge"><i class="fas fa-lock"></i> Dane szyfrowane</div>
@@ -482,8 +483,6 @@
         });
 
         // --- Rotation des 4 logos toutes les 30 secondes ---
-        // L'ancien logo (7a6898f73cd7a6aace48d3358810b49b.jpg) a été supprimé.
-        // Seuls les 4 nouveaux logos ci-dessous tournent en boucle.
         const logoImages = [
             "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032548~2.png",
             "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032155~2.png",
@@ -496,16 +495,13 @@
 
         function changeLogo() {
             currentIndex = (currentIndex + 1) % logoImages.length;
-            // Effet de fondu (fade out)
             mainLogo.style.opacity = "0";
             setTimeout(() => {
                 mainLogo.src = logoImages[currentIndex];
-                // Réapparition (fade in)
                 mainLogo.style.opacity = "1";
             }, 400);
         }
 
-        // Lancer la rotation toutes les 30 000 millisecondes (30 secondes)
         setInterval(changeLogo, 30000);
     </script>
 </body>
