@@ -166,8 +166,8 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <!-- GŁÓWNE LOGO – BĘDZIE ROTOWANE -->
-                    <img id="main-logo" src="7a6898f73cd7a6aace48d3358810b49b.jpg" alt="Logo" class="logo-img-header">
+                    <!-- Suppression de l'ancien logo. Démarrage direct avec le premier des 4 nouveaux logos. -->
+                    <img id="main-logo" src="https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032548~2.png" alt="Logo" class="logo-img-header">
                     <i class="fas fa-bolt"></i> FinanceExpress
                 </a>
                 <ul class="nav-menu">
@@ -456,7 +456,7 @@
     </footer>
 
     <script>
-        // --- MENU BURGER ---
+        // --- Menu burger ---
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         hamburger.addEventListener("click", () => {
@@ -468,7 +468,7 @@
             navMenu.classList.remove("active");
         }));
 
-        // --- FAQ ACCORDION ---
+        // --- Accordéon FAQ ---
         const faqItems = document.querySelectorAll(".faq-item");
         faqItems.forEach(item => {
             const question = item.querySelector(".faq-question");
@@ -481,36 +481,32 @@
             });
         });
 
-        // --- ROTACJA LOGO CO 60 SEKUND ---
-        // Lista ścieżek do Twoich logo (kolejność dowolna)
+        // --- Rotation des 4 logos toutes les 30 secondes ---
+        // L'ancien logo (7a6898f73cd7a6aace48d3358810b49b.jpg) a été supprimé.
+        // Seuls les 4 nouveaux logos ci-dessous tournent en boucle.
         const logoImages = [
-            "Screenshot_20260622-032548~2.png",
-            "Screenshot_20260622-032155~2.png",
-            "Screenshot_20260622-031125~2.png",
-            "Screenshot_20260622-031917~2.png"
+            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032548~2.png",
+            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032155~2.png",
+            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-031125~2.png",
+            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-031917~2.png"
         ];
 
         let currentIndex = 0;
         const mainLogo = document.getElementById("main-logo");
 
         function changeLogo() {
-            // Następny obraz (z pętlą)
             currentIndex = (currentIndex + 1) % logoImages.length;
-            // Płynne przejście – najpierw znika, potem zmienia src i pojawia się
+            // Effet de fondu (fade out)
             mainLogo.style.opacity = "0";
             setTimeout(() => {
                 mainLogo.src = logoImages[currentIndex];
+                // Réapparition (fade in)
                 mainLogo.style.opacity = "1";
-            }, 400); // czas zanikania (dopasowany do CSS)
+            }, 400);
         }
 
-        // Ustawienie początkowego logo (jeśli nie chcesz zaczynać od pierwszego z listy, zmień currentIndex)
-        // Domyślnie zostawiamy oryginalny plik (7a6898f73cd7a6aace48d3358810b49b.jpg) – nie zmieniamy go od razu.
-        // Po 60 sekundach zacznie się rotacja od logoImages[0].
-        // Aby zacząć od razu od pierwszego z listy, można ustawić src na logoImages[0] – ale tego nie robimy, żeby zachować domyślne logo.
-
-        // Uruchamiamy zmianę co 60 000 ms (1 minuta)
-        setInterval(changeLogo, 60000);
+        // Lancer la rotation toutes les 30 000 millisecondes (30 secondes)
+        setInterval(changeLogo, 30000);
     </script>
 </body>
 </html>
