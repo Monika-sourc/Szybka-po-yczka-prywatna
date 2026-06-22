@@ -3,69 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dziękujemy za wniosek | FinanceExpress</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <title>Dziękujemy! - FinanceExpress</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
+            background: #f1f5f9;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            text-align: center;
             padding: 20px;
+            text-align: center;
         }
-        .box {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 50px 40px;
-            border-radius: 24px;
-            max-width: 500px;
-            border: 1px solid rgba(255,255,255,0.2);
+        .container {
+            max-width: 650px;
+            background: #ffffff;
+            padding: 60px 45px;
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            border: 1px solid #e2e8f0;
         }
-        .icon {
-            font-size: 4rem;
+        .icon-check {
+            font-size: 4.5rem;
             color: #10b981;
             margin-bottom: 20px;
         }
         h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f172a;
             margin-bottom: 16px;
         }
-        p { 
-            font-size: 1.1rem; 
-            color: #cbd5e1; 
-            margin-bottom: 30px; 
-            line-height: 1.6;
+        .subtitle {
+            font-size: 1.15rem;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 25px;
         }
-        .btn {
-            background: #f59e0b;
+        .highlight {
             color: #0f172a;
-            padding: 14px 30px;
-            border-radius: 50px;
+            font-weight: 700;
+        }
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #f59e0b;
+            margin: 25px auto;
+            border-radius: 10px;
+        }
+
+        /* ---------- SEKCJA WHATSAPP Z ANIMACJĄ ---------- */
+        .whatsapp-box {
+            background: #f0fdf4;
+            border: 2px solid #25D366;
+            border-radius: 1.5rem;
+            padding: 30px 20px;
+            margin: 25px 0 20px;
+            position: relative;
+        }
+        .whatsapp-box i.fa-whatsapp {
+            font-size: 2.8rem;
+            color: #25D366;
+            margin-bottom: 10px;
+        }
+        .whatsapp-box h3 {
+            color: #0f172a;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        .whatsapp-box p {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: #25D366;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 700;
-            display: inline-block;
-            transition: all 0.3s;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
+            margin-top: 5px;
+            position: relative;
+            z-index: 2;
         }
-        .btn:hover {
-            background: #fbbf24;
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            border-color: #128C7E;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
+        }
+        .btn-whatsapp i {
+            font-size: 1.4rem;
+        }
+
+        /* --- ANIMOWANA STRZAŁKA --- */
+        .arrow-animation {
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+            font-size: 2.2rem;
+            color: #25D366;
+            animation: bounce-arrow 1.8s infinite ease-in-out;
+        }
+        @keyframes bounce-arrow {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(12px);
+                opacity: 1;
+            }
+        }
+        .arrow-animation i {
+            display: block;
+        }
+        .arrow-text {
+            font-size: 0.9rem;
+            color: #0f172a;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* --- PRZYCISK POWROTU --- */
+        .btn-home {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+            margin-top: 10px;
+        }
+        .btn-home:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .footer-note a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 35px 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .whatsapp-box {
+                padding: 20px 15px;
+            }
+            .btn-whatsapp {
+                padding: 14px 25px;
+                font-size: 1rem;
+            }
+            .arrow-animation {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="icon"><i class="fas fa-check-circle"></i></div>
-        <h1>Wniosek wysłany!</h1>
-        <p>Dziękujemy za zaufanie. Twój wniosek został przyjęty.</p>
-        <p>Skontaktujemy się z Tobą w ciągu <strong>15 minut</strong> w godzinach pracy (8:00-18:00).</p>
-        <a href="index.html" class="btn">Wróć na stronę główną</a>
+    <div class="container">
+
+        <!-- Ikona sukcesu -->
+        <div class="icon-check">
+            <i class="fas fa-check-circle"></i>
+        </div>
+
+        <!-- Główny tytuł -->
+        <h1>Dziękujemy! Twój wniosek został wysłany</h1>
+
+        <!-- Wiadomość powitalna -->
+        <p class="subtitle">
+            <span class="highlight">FinanceExpress</span> dziękuje za zaufanie.<br>
+            Nasi specjaliści dokładnie analizują Twoje dane, aby zapewnić Ci najszybszą i najbardziej profesjonalną obsługę.
+        </p>
+
+        <div class="divider"></div>
+
+        <!-- SEKCJA WHATSAPP Z ANIMACJĄ -->
+        <div class="whatsapp-box">
+            <i class="fab fa-whatsapp"></i>
+            <h3>Chcesz przyspieszyć proces?</h3>
+            <p>
+                Skontaktuj się z nami bezpośrednio przez WhatsApp, aby uzyskać natychmiastową pomoc,<br>
+                spersonalizowane doradztwo i błyskawiczną obsługę Twojego wniosku.<br>
+                Kliknij poniższy przycisk i napisz do nas już teraz!
+            </p>
+
+            <!-- Strzałka animowana wskazująca na przycisk -->
+            <div class="arrow-animation">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="arrow-text">
+                <i class="fas fa-hand-pointer"></i> Kliknij tutaj
+            </div>
+
+            <!-- Przycisk WhatsApp z linkiem -->
+            <a href="https://wa.me/message/3JXSE6P72OXRM1" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Napisz do nas na WhatsApp
+            </a>
+        </div>
+
+        <!-- Link powrotu na stronę główną -->
+        <a href="https://monika-sourc.github.io/Szybka-po-yczka-prywatna/" class="btn-home">
+            <i class="fas fa-home"></i> Wróć na stronę główną
+        </a>
+
+        <!-- Stopka -->
+        <div class="footer-note">
+            <p>© 2026 FinanceExpress · <a href="mailto:noreply.kontakt.pl@gmail.com">noreply.kontakt.pl@gmail.com</a></p>
+        </div>
+
     </div>
 </body>
 </html>
