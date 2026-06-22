@@ -166,8 +166,8 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <!-- Les 4 logos tournent toutes les 30 secondes -->
-                    <img id="main-logo" src="https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032548~2.png" alt="Logo" class="logo-img-header">
+                    <!-- Logo de départ : le premier des deux logos -->
+                    <img id="main-logo" src="https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_042316_705.png" alt="Logo" class="logo-img-header">
                     <i class="fas fa-bolt"></i> FinanceExpress
                 </a>
                 <ul class="nav-menu">
@@ -196,7 +196,7 @@
                     <div class="hero-badge">Decyzja w 15 minut!</div>
                     <h1 class="hero-title">Szybka pożyczka prywatna online</h1>
                     <p class="hero-subtitle">Potrzebujesz gotówki na dowolny cel? Wypełnij wniosek i otrzymaj pieniądze nawet w ciągu 24 godzin. Bez wychodzenia z domu, bez zbędnych formalności.</p>
-                    <!-- NOUVELLE CARTE BANCAIRE -->
+                    <!-- Nouvelle carte bancaire -->
                     <img src="IMG_20260622_030751_134.png" alt="Karta bankowa" class="card-img-hero">
                     <div class="trust-badges">
                         <div class="trust-badge"><i class="fas fa-shield-alt"></i> 100% Bezpiecznie</div>
@@ -482,12 +482,11 @@
             });
         });
 
-        // --- Rotation des 4 logos toutes les 30 secondes ---
+        // --- Rotation des 2 logos toutes les 30 secondes ---
+        // On remplace les 4 anciens logos par ces 2 uniquement.
         const logoImages = [
-            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032548~2.png",
-            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-032155~2.png",
-            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-031125~2.png",
-            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/Screenshot_20260622-031917~2.png"
+            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_042316_705.png",
+            "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_042251_876.png"
         ];
 
         let currentIndex = 0;
@@ -502,6 +501,7 @@
             }, 400);
         }
 
+        // Lancement de la rotation toutes les 30 secondes (30000 ms)
         setInterval(changeLogo, 30000);
     </script>
 </body>
