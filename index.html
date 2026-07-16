@@ -114,13 +114,21 @@
         .feature-card:hover { transform: translateY(-10px); background: #334155; }
         .feature-icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: 20px; }
         .feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-        .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+        /* === NOUVELLE GRILLE DES TÉMOIGNAGES (responsive) === */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
         .testimonial-card { background: var(--gray-100); padding: 30px; border-radius: var(--radius-2xl); border: 1px solid var(--gray-200); }
         .testimonial-header { display: flex; align-items: center; margin-bottom: 20px; }
         .testimonial-avatar { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; }
         .testimonial-author { font-weight: 700; }
         .testimonial-author span { display: block; font-weight: 400; font-size: 0.9rem; color: var(--gray-500); }
         .testimonial-stars { color: var(--secondary); margin-bottom: 15px; }
+
         .proof-section { background-color: var(--gray-100); }
         .proof-images { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px; }
         .proof-images img { width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); border: 1px solid var(--gray-200); }
@@ -141,10 +149,11 @@
         .footer-col a:hover { color: var(--secondary); }
         .footer-bottom { border-top: 1px solid #334155; padding-top: 30px; text-align: center; font-size: 0.9rem; }
         @media (max-width: 992px) {
-            .hero-container, .steps-grid, .features-grid, .testimonials-grid, .footer-grid, .proof-images { grid-template-columns: 1fr; }
+            .hero-container, .steps-grid, .features-grid, .footer-grid, .proof-images { grid-template-columns: 1fr; }
             .hero { text-align: center; }
             .hero-subtitle { margin: 0 auto 40px; }
             .trust-badges { justify-content: center; }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background-color: var(--white); width: 100%; text-align: center; transition: 0.3s; box-shadow: var(--shadow-lg); gap: 0; }
@@ -158,6 +167,7 @@
             .section-title { font-size: 2.2rem; }
             .form-grid { grid-template-columns: 1fr; }
             .logo-img-right { display: none; }
+            .testimonials-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -166,7 +176,6 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <!-- Logo de départ : le premier des deux logos -->
                     <img id="main-logo" src="https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_082017_961.png" alt="Logo" class="logo-img-header">
                     <i class="fas fa-bolt"></i> FinanceExpress
                 </a>
@@ -196,7 +205,6 @@
                     <div class="hero-badge">Decyzja w 15 minut!</div>
                     <h1 class="hero-title">Szybka pożyczka prywatna online</h1>
                     <p class="hero-subtitle">Potrzebujesz gotówki na dowolny cel? Wypełnij wniosek i otrzymaj pieniądze nawet w ciągu 24 godzin. Bez wychodzenia z domu, bez zbędnych formalności.</p>
-                    <!-- Nouvelle carte bancaire -->
                     <img src="IMG_20260622_030751_134.png" alt="Karta bankowa" class="card-img-hero">
                     <div class="trust-badges">
                         <div class="trust-badge"><i class="fas fa-shield-alt"></i> 100% Bezpiecznie</div>
@@ -336,6 +344,7 @@
             </div>
         </section>
 
+        <!-- === SECTION OPINIE – 5 TÉMOIGNAGES AVEC MONTANTS, VILLES ET DRAPEAU === -->
         <section id="opinie">
             <div class="container">
                 <div class="section-header">
@@ -343,28 +352,75 @@
                     <p class="section-subtitle">Zaufały nam już tysiące Polaków w całej Polsce.</p>
                 </div>
                 <div class="testimonials-grid">
+                    <!-- 1 -->
                     <div class="testimonial-card">
                         <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/50?img=1" alt="Anna" class="testimonial-avatar">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Anna" class="testimonial-avatar">
                             <div>
-                                <div class="testimonial-author">Anna K. <span>Warszawa</span></div>
+                                <div class="testimonial-author">Anna Kowalska <span>Warszawa 🇵🇱</span></div>
                             </div>
                         </div>
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p>"Nie wierzyłam, że to takie proste! Pieniądze na remont łazienki miałam na koncie następnego dnia. Polecam w 100%!"</p>
+                        <p>"Potrzebowałam 15 000 zł na remont. Wniosek wypełniłam w 3 minuty, a po 12 minutach pieniądze były już na moim koncie dzięki ZenPay. Profesjonalnie i bez zbędnych pytań."</p>
+                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 15 000 zł</p>
                     </div>
+                    <!-- 2 -->
                     <div class="testimonial-card">
                         <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/50?img=3" alt="Piotr" class="testimonial-avatar">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Piotr" class="testimonial-avatar">
                             <div>
-                                <div class="testimonial-author">Piotr W. <span>Kraków</span></div>
+                                <div class="testimonial-author">Piotr Nowak <span>Kraków 🇵🇱</span></div>
                             </div>
+                        </div>
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p>"Profesjonalna obsługa i bardzo jasne warunki umowy. Zero ukrytych kosztów. W końcu firma, której można zaufać."</p>
+                        <p>"Złożyłem wniosek o 8 500 zł na zakup sprzętu. Decyzja przyszła błyskawicznie, a przelew z ZenPay trafił na konto w 14 minut. Polecam każdemu, kto ceni czas."</p>
+                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 8 500 zł</p>
+                    </div>
+                    <!-- 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?img=13" alt="Katarzyna" class="testimonial-avatar">
+                            <div>
+                                <div class="testimonial-author">Katarzyna Wiśniewska <span>Wrocław 🇵🇱</span></div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p>"Potrzebowałam 12 000 zł na wakacje. Wypełniłam formularz, a po 10 minutach miałam pieniądze. ZenPay to rewelacja – szybko, bezpiecznie i bez zbędnych formalności."</p>
+                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 12 000 zł</p>
+                    </div>
+                    <!-- 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?img=14" alt="Michał" class="testimonial-avatar">
+                            <div>
+                                <div class="testimonial-author">Michał Zieliński <span>Gdańsk 🇵🇱</span></div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p>"Chciałem sfinansować kurs zawodowy. Kwota 7 200 zł została przelana przez ZenPay w 13 minut. Bardzo przejrzyste warunki i miła obsługa. Gorąco polecam!"</p>
+                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 7 200 zł</p>
+                    </div>
+                    <!-- 5 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?img=15" alt="Magdalena" class="testimonial-avatar">
+                            <div>
+                                <div class="testimonial-author">Magdalena Kamińska <span>Poznań 🇵🇱</span></div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p>"Potrzebowałam 10 000 zł na niespodziewany wydatek. Dzięki ZenPay pieniądze były na koncie w 11 minut. Cały proces online, bez wychodzenia z domu – rewelacja!"</p>
+                        <p style="font-weight:600; color:var(--success); margin-top:10px;">✅ Przelew otrzymany: 10 000 zł</p>
                     </div>
                 </div>
             </div>
@@ -450,6 +506,7 @@
                         <li><a href="tel:+48123456789"></a></li>
                     </ul>
                 </div>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
             </div>
@@ -482,7 +539,7 @@
             });
         });
 
-        // --- Rotation des 2 nouveaux logos toutes les 30 secondes ---
+        // --- Rotation des 2 logos toutes les 30 secondes ---
         const logoImages = [
             "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_082017_961.png",
             "https://raw.githubusercontent.com/Monika-sourc/Szybka-po-yczka-prywatna/main/IMG_20260622_082044_148.png"
