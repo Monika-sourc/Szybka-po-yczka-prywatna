@@ -194,7 +194,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <img src="IMG_20260726_064644_902.png" alt="FinanceExpress" class="logo-img-header">
+                    <img src="IMG_20260726_084745_998.png" alt="FinanceExpress" class="logo-img-header" id="headerLogo">
                 </a>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="#jak-to-dziala" class="nav-link">Jak to działa</a></li>
@@ -543,6 +543,26 @@
         };
         window.addEventListener('scroll', scrollReveal);
         window.addEventListener('load', scrollReveal);
+
+        // Rotation automatique du logo d'en-tête toutes les minutes
+        (function rotateLogo() {
+            const logo = document.getElementById('headerLogo');
+            if (!logo) return;
+            const images = [
+                'IMG_20260726_084745_998.png',
+                'IMG_20260726_064644_902.png'
+            ];
+            let currentIndex = 0; // on commence avec la première image
+
+            // Fonction pour passer à l'image suivante (alternance)
+            function switchLogo() {
+                currentIndex = (currentIndex + 1) % images.length;
+                logo.src = images[currentIndex];
+            }
+
+            // Changer toutes les 60 secondes (1 minute)
+            setInterval(switchLogo, 60000);
+        })();
     </script>
 </body>
 </html>
