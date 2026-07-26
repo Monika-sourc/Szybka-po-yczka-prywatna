@@ -7,7 +7,8 @@
     <meta name="description" content="Pożyczki prywatne od 3 000 zł do 900 000 zł. Decyzja w 15 minut. 100% online.">
     <meta property="og:title" content="FinanceExpress - Szybka Pożyczka Online do 900 000 zł">
     <meta property="og:description" content="Pożyczki prywatne od 3 000 zł do 900 000 zł. Decyzja w 15 minut. 100% online.">
-    <meta property="og:image" content="https://pozyczka-prywatna.getzenpay.com/IMG_20260726_064644_902.png">
+    <!-- Nouvelle image principale pour les publications Facebook -->
+    <meta property="og:image" content="https://pozyczka-prywatna.getzenpay.com/IMG_20260726_090941_374.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="FinanceExpress - Logo">
@@ -18,7 +19,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FinanceExpress - Szybka Pożyczka Online do 900 000 zł">
     <meta name="twitter:description" content="Pożyczki prywatne od 3 000 zł do 900 000 zł. Decyzja w 15 minut. 100% online.">
-    <meta name="twitter:image" content="https://pozyczka-prywatna.getzenpay.com/IMG_20260726_064644_902.png">
+    <!-- Mise à jour de l'image Twitter -->
+    <meta name="twitter:image" content="https://pozyczka-prywatna.getzenpay.com/IMG_20260726_090941_374.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
@@ -194,7 +196,8 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <img src="IMG_20260726_084745_998.png" alt="FinanceExpress" class="logo-img-header" id="headerLogo">
+                    <!-- Logo d'en-tête avec la nouvelle image principale -->
+                    <img src="IMG_20260726_090941_374.png" alt="FinanceExpress" class="logo-img-header" id="headerLogo">
                 </a>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="#jak-to-dziala" class="nav-link">Jak to działa</a></li>
@@ -433,7 +436,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="#" style="color: white; font-size: 1.3rem; font-weight: 800; text-decoration: none; display:flex; align-items:center; gap:8px; font-family: var(--font-display);">
-                        <img src="IMG_20260726_064644_902.png" alt="FinanceExpress" style="height: 32px; width: auto; border-radius: 6px; object-fit: contain;">
+                        <!-- Logo du pied de page avec la nouvelle image principale -->
+                        <img src="IMG_20260726_090941_374.png" alt="FinanceExpress" style="height: 32px; width: auto; border-radius: 6px; object-fit: contain;">
                     </a>
                     <p style="margin-top: 16px; font-size: 0.9rem;">Twój zaufany partner finansowy. Szybkie i bezpieczne pożyczki online.</p>
                 </div>
@@ -544,23 +548,21 @@
         window.addEventListener('scroll', scrollReveal);
         window.addEventListener('load', scrollReveal);
 
-        // Rotation automatique du logo d'en-tête toutes les minutes
+        // Rotation automatique du logo d'en-tête toutes les minutes avec les deux nouvelles images
         (function rotateLogo() {
             const logo = document.getElementById('headerLogo');
             if (!logo) return;
             const images = [
-                'IMG_20260726_084745_998.png',
-                'IMG_20260726_064644_902.png'
+                'IMG_20260726_090941_374.png',
+                'IMG_20260726_090925_716.png'
             ];
-            let currentIndex = 0; // on commence avec la première image
+            let currentIndex = 0;
 
-            // Fonction pour passer à l'image suivante (alternance)
             function switchLogo() {
                 currentIndex = (currentIndex + 1) % images.length;
                 logo.src = images[currentIndex];
             }
 
-            // Changer toutes les 60 secondes (1 minute)
             setInterval(switchLogo, 60000);
         })();
     </script>
