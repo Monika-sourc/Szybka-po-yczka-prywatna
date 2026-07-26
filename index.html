@@ -41,7 +41,10 @@
        .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
        .nav-logo { font-size: 1.75rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 10px; }
        .nav-logo i { color: var(--secondary); }
+       /* Classe par défaut pour tous les logos d'en-tête (hauteur 45px) */
        .logo-img-header { height: 45px; width: auto; border-radius: 8px; transition: opacity 0.8s ease-in-out; }
+       /* Surcharge pour le logo principal animé (hauteur 60px) */
+       #main-logo { height: 60px; }
        .nav-menu { display: flex; align-items: center; gap: 40px; list-style: none; }
        .nav-link { font-weight: 600; color: var(--gray-700); text-decoration: none; transition: var(--transition); }
        .nav-link:hover { color: var(--accent); }
@@ -163,7 +166,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <!-- Logo principal modifié avec la première nouvelle image -->
+                    <!-- Logo principal avec hauteur 60px (via id="main-logo") -->
                     <img id="main-logo" src="IMG_20260726_090941_374.png" alt="Logo" class="logo-img-header">
                     <i class="fas fa-bolt"></i> FinanceExpress
                 </a>
@@ -172,7 +175,7 @@
                     <li class="nav-item"><a href="#dlaczego-my" class="nav-link">Dlaczego my</a></li>
                     <li class="nav-item"><a href="#opinie" class="nav-link">Opinie</a></li>
                     <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
-                    <!-- Logo partenaire conservé inchangé -->
+                    <!-- Logo partenaire, hauteur conservée à 45px -->
                     <li class="nav-item"><img src="IMG_20260605_235014_385.png" alt="Logo partenaire" class="logo-img-header"></li>
                     <li class="nav-item"><a href="#wniosek" class="btn btn-primary">Złóż wniosek</a></li>
                 </ul>
@@ -337,7 +340,7 @@
                 item.classList.toggle("active");
             });
         });
-        // Mise à jour des logos principaux avec vos deux nouvelles images
+        // Vos deux logos principaux alternent toutes les 30 secondes
         const logoImages = [
             "IMG_20260726_090941_374.png",
             "IMG_20260726_090925_716.png"
