@@ -56,7 +56,7 @@
        .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
        .nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
        .nav-logo i { color: var(--secondary); }
-       .logo-img-header { height: 45px; width: auto; max-width: 200px; object-fit: contain; border-radius: 6px; display: block; background-color: var(--primary); padding: 2px; }
+       .logo-img-header { height: 45px; width: auto; max-width: 200px; object-fit: contain; border-radius: 6px; }
        .nav-menu { display: flex; align-items: center; gap: 32px; list-style: none; }
        .nav-link { font-weight: 600; color: var(--gray-700); text-decoration: none; transition: var(--transition); font-size: 0.95rem; }
        .nav-link:hover { color: var(--accent); }
@@ -194,8 +194,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <img src="IMG_20260726_064644_902.png?v=2" alt="FinanceExpress" class="logo-img-header">
-                    FinanceExpress
+                    <img src="IMG_20260726_064644_902.png" alt="FinanceExpress" class="logo-img-header">
                 </a>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="#jak-to-dziala" class="nav-link">Jak to działa</a></li>
@@ -212,6 +211,9 @@
         <section class="hero" id="wniosek">
             <div class="container hero-container">
                 <div class="hero-content">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <span style="font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; color: var(--white); letter-spacing: -1px;">FinanceExpress</span>
+                    </div>
                     <div class="hero-badge">Decyzja w 15 minut!</div>
                     <h1 class="hero-title">Szybka pożyczka prywatna online</h1>
                     <p class="hero-subtitle">Potrzebujesz gotówki na dowolny cel? Wypełnij wniosek i otrzymaj pieniądze nawet w ciągu 24 godzin. Bez wychodzenia z domu, bez zbędnych formalności.</p>
@@ -431,7 +433,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="#" style="color: white; font-size: 1.3rem; font-weight: 800; text-decoration: none; display:flex; align-items:center; gap:8px; font-family: var(--font-display);">
-                        <i class="fas fa-bolt" style="color: var(--secondary);"></i> FinanceExpress
+                        <img src="IMG_20260726_064644_902.png" alt="FinanceExpress" style="height: 32px; width: auto; border-radius: 6px; object-fit: contain;">
                     </a>
                     <p style="margin-top: 16px; font-size: 0.9rem;">Twój zaufany partner finansowy. Szybkie i bezpieczne pożyczki online.</p>
                 </div>
