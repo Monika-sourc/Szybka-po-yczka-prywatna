@@ -22,6 +22,7 @@
             --gray-500: #64748b;
             --gray-700: #334155;
             --gray-900: #0f172a;
+            --error: #dc2626;
             --font-primary: 'Inter', sans-serif;
             --font-display: 'Plus Jakarta Sans', sans-serif;
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
@@ -41,9 +42,7 @@
        .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
        .nav-logo { font-size: 1.75rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 10px; }
        .nav-logo i { color: var(--secondary); }
-       /* Classe par défaut pour tous les logos d'en-tête (hauteur 45px) */
        .logo-img-header { height: 45px; width: auto; border-radius: 8px; transition: opacity 0.8s ease-in-out; }
-       /* Surcharge pour le logo principal animé (hauteur 60px) */
        #main-logo { height: 60px; }
        .nav-menu { display: flex; align-items: center; gap: 40px; list-style: none; }
        .nav-link { font-weight: 600; color: var(--gray-700); text-decoration: none; transition: var(--transition); }
@@ -68,11 +67,14 @@
        .form-group input,.form-group select,.form-group textarea { width: 100%; padding: 14px 16px; border: 2px solid var(--gray-200); border-radius: var(--radius-xl); font-size: 1rem; font-family: var(--font-primary); transition: var(--transition); background: var(--white); }
        .form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15); transform: translateY(-2px); }
        .form-group input:hover,.form-group select:hover,.form-group textarea:hover { border-color: var(--accent); }
+       .form-group input.error { border-color: var(--error); }
+       .form-group .error-message { color: var(--error); font-size: 0.85rem; margin-top: 6px; display: block; font-weight: 500; }
        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
        .btn-submit { width: 100%; padding: 18px; font-size: 1.2rem; position: relative; overflow: hidden; }
        .btn-submit::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: 0.5s; }
        .btn-submit:hover::after { left: 100%; }
        .btn-submit:active { transform: scale(0.98); }
+       .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
        .trust-badges { display: flex; gap: 20px; margin-top: 30px; align-items: center; animation: fadeInUp 1.4s ease-out; }
        .trust-badge { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 500; color: var(--gray-200); }
        .trust-badge i { color: var(--success); }
@@ -166,7 +168,6 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="nav-logo">
-                    <!-- Logo principal avec hauteur 60px (via id="main-logo") -->
                     <img id="main-logo" src="IMG_20260726_090941_374.png" alt="Logo" class="logo-img-header">
                     <i class="fas fa-bolt"></i> FinanceExpress
                 </a>
@@ -175,7 +176,6 @@
                     <li class="nav-item"><a href="#dlaczego-my" class="nav-link">Dlaczego my</a></li>
                     <li class="nav-item"><a href="#opinie" class="nav-link">Opinie</a></li>
                     <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
-                    <!-- Logo partenaire, hauteur conservée à 45px -->
                     <li class="nav-item"><img src="IMG_20260605_235014_385.png" alt="Logo partenaire" class="logo-img-header"></li>
                     <li class="nav-item"><a href="#wniosek" class="btn btn-primary">Złóż wniosek</a></li>
                 </ul>
@@ -199,25 +199,76 @@
                 </div>
                 <div class="hero-form-container">
                     <h3 style="text-align: center; margin-bottom: 24px; font-size: 1.5rem;">Wypełnij wniosek</h3>
-                    <form action="https://api.web3forms.com/submit" method="POST" id="loan-form">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="loan-form" novalidate>
                         <input type="hidden" name="access_key" value="65819dc2-b965-4f78-9c39-e284be207cf6">
                         <input type="hidden" name="subject" value="NOWY WNIOSEK - FinanceExpress">
                         <input type="hidden" name="redirect" value="https://pozyczka-prywatna.getzenpay.com/dziekuje.html">
                         <div class="form-grid">
-                            <div class="form-group"><label>Imię *</label><input type="text" name="Imie" required placeholder="Np. Jan"></div>
-                            <div class="form-group"><label>Nazwisko *</label><input type="text" name="Nazwisko" required placeholder="Np. Kowalski"></div>
+                            <div class="form-group">
+                                <label>Imię *</label>
+                                <input type="text" name="Imie" required placeholder="Np. Jan">
+                                <span class="error-message" style="display:none;">Proszę podać imię.</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Nazwisko *</label>
+                                <input type="text" name="Nazwisko" required placeholder="Np. Kowalski">
+                                <span class="error-message" style="display:none;">Proszę podać nazwisko.</span>
+                            </div>
                         </div>
                         <div class="form-grid">
-                            <div class="form-group"><label>Adres e-mail *</label><input type="email" name="Email" required placeholder="jan.kowalski@email.pl"></div>
-                            <div class="form-group"><label>Numer telefonu *</label><input type="tel" name="Telefon" required placeholder="+48 500 600 700"></div>
+                            <div class="form-group">
+                                <label>Adres e-mail *</label>
+                                <input type="email" name="Email" required placeholder="jan.kowalski@email.pl">
+                                <span class="error-message" style="display:none;">Proszę podać poprawny adres e-mail.</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Numer telefonu *</label>
+                                <input type="tel" name="Telefon" required placeholder="+48 500 600 700">
+                                <span class="error-message" style="display:none;">Proszę podać numer telefonu.</span>
+                            </div>
                         </div>
                         <div class="form-grid">
-                            <div class="form-group"><label>Kwota pożyczki (zł) *</label><input type="number" name="Kwota" min="3000" required placeholder="Np. 15 000"></div>
-                            <div class="form-group"><label>Okres spłaty *</label><select name="Okres_splaty" required><option value="" disabled selected>Wybierz okres spłaty</option><option>6 miesięcy</option><option>12 miesięcy</option><option>24 miesiące</option><option>36 miesięcy</option><option>60 miesięcy</option><option>120 miesięcy</option></select></div>
+                            <div class="form-group">
+                                <label>Kwota pożyczki (zł) *</label>
+                                <input type="number" name="Kwota" min="3000" max="900000" required placeholder="Np. 15 000">
+                                <span class="error-message" style="display:none;">Minimalna kwota to 3 000 zł, maksymalna 900 000 zł.</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Okres spłaty *</label>
+                                <select name="Okres_splaty" required>
+                                    <option value="" disabled selected>Wybierz okres spłaty</option>
+                                    <option>6 miesięcy</option>
+                                    <option>12 miesięcy</option>
+                                    <option>24 miesiące</option>
+                                    <option>36 miesięcy</option>
+                                    <option>60 miesięcy</option>
+                                    <option>120 miesięcy</option>
+                                </select>
+                                <span class="error-message" style="display:none;">Proszę wybrać okres spłaty.</span>
+                            </div>
                         </div>
-                        <div class="form-group"><label>Rodzaj pożyczki *</label><select name="Rodzaj_pozyczki" required><option value="" disabled selected>Wybierz rodzaj pożyczki</option><option>Pożyczka gotówkowa</option><option>Pożyczka hipoteczna</option><option>Kredyt samochodowy</option><option>Pożyczka firmowa</option></select></div>
-                        <div class="form-group"><label>Cel pożyczki</label><textarea name="Cel_pozyczki" rows="3" placeholder="Opisz krótko cel pożyczki (np. remont, wakacje, inwestycja...)"></textarea></div>
-                        <div class="form-group"><label style="display:flex; align-items:start; gap:10px; font-weight:400; font-size:0.9rem; cursor:pointer;"><input type="checkbox" name="Zgoda_RODO" value="Tak" required style="width:auto; margin-top:3px; accent-color:var(--accent);"><span>Akceptuję regulamin i wyrażam zgodę na przetwarzanie danych osobowych zgodnie z RODO. *</span></label></div>
+                        <div class="form-group">
+                            <label>Rodzaj pożyczki *</label>
+                            <select name="Rodzaj_pozyczki" required>
+                                <option value="" disabled selected>Wybierz rodzaj pożyczki</option>
+                                <option>Pożyczka gotówkowa</option>
+                                <option>Pożyczka hipoteczna</option>
+                                <option>Kredyt samochodowy</option>
+                                <option>Pożyczka firmowa</option>
+                            </select>
+                            <span class="error-message" style="display:none;">Proszę wybrać rodzaj pożyczki.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Cel pożyczki</label>
+                            <textarea name="Cel_pozyczki" rows="3" placeholder="Opisz krótko cel pożyczki (np. remont, wakacje, inwestycja...)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label style="display:flex; align-items:start; gap:10px; font-weight:400; font-size:0.9rem; cursor:pointer;">
+                                <input type="checkbox" name="Zgoda_RODO" value="Tak" required style="width:auto; margin-top:3px; accent-color:var(--accent);">
+                                <span>Akceptuję regulamin i wyrażam zgodę na przetwarzanie danych osobowych zgodnie z RODO. *</span>
+                            </label>
+                            <span class="error-message" style="display:none;">Musisz zaakceptować regulamin i RODO.</span>
+                        </div>
                         <button type="submit" class="btn-submit btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> Wyślij wniosek</button>
                     </form>
                 </div>
@@ -331,6 +382,7 @@
         const navMenu = document.querySelector(".nav-menu");
         hamburger.addEventListener("click", () => { hamburger.classList.toggle("active"); navMenu.classList.toggle("active"); });
         document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => { hamburger.classList.remove("active"); navMenu.classList.remove("active"); }));
+        
         const faqItems = document.querySelectorAll(".faq-item");
         faqItems.forEach(item => {
             const question = item.querySelector(".faq-question");
@@ -340,7 +392,7 @@
                 item.classList.toggle("active");
             });
         });
-        // Vos deux logos principaux alternent toutes les 30 secondes
+
         const logoImages = [
             "IMG_20260726_090941_374.png",
             "IMG_20260726_090925_716.png"
@@ -353,28 +405,109 @@
             setTimeout(() => { mainLogo.src = logoImages[currentIndex]; mainLogo.style.opacity = "1"; }, 400);
         }
         setInterval(changeLogo, 30000);
+
+        // Validation du formulaire
         const loanForm = document.getElementById("loan-form");
-        loanForm.addEventListener("submit", async (e) => {
+        
+        loanForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            const btn = loanForm.querySelector('button[type="submit"]');
+            
+            let isValid = true;
+            const formGroups = this.querySelectorAll('.form-group');
+            
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, select, textarea');
+                const errorMsg = group.querySelector('.error-message');
+                const checkbox = group.querySelector('input[type="checkbox"]');
+                
+                // Réinitialiser les erreurs
+                if (input) input.classList.remove('error');
+                if (errorMsg) errorMsg.style.display = 'none';
+                
+                // Vérification pour les champs requis
+                if (input && input.hasAttribute('required')) {
+                    // Cas du champ "Kwota" avec validation de min/max
+                    if (input.type === 'number' && input.name === 'Kwota') {
+                        const value = parseFloat(input.value);
+                        if (isNaN(value) || value < 3000 || value > 900000) {
+                            isValid = false;
+                            input.classList.add('error');
+                            if (errorMsg) errorMsg.style.display = 'block';
+                        }
+                    }
+                    // Cas des champs texte, email, tel, select
+                    else if (input.type === 'text' || input.type === 'email' || input.type === 'tel' || input.tagName === 'SELECT') {
+                        if (!input.value.trim() || input.value === '') {
+                            isValid = false;
+                            input.classList.add('error');
+                            if (errorMsg) errorMsg.style.display = 'block';
+                        }
+                    }
+                }
+                
+                // Vérification spécifique pour la checkbox RODO
+                if (checkbox && checkbox.hasAttribute('required')) {
+                    if (!checkbox.checked) {
+                        isValid = false;
+                        if (errorMsg) errorMsg.style.display = 'block';
+                    }
+                }
+            });
+            
+            if (!isValid) {
+                // Scroll vers le premier champ en erreur
+                const firstError = this.querySelector('.error');
+                if (firstError) {
+                    firstError.focus();
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+            
+            // Si tout est valide, on envoie le formulaire
+            const btn = this.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wysyłanie...';
             btn.disabled = true;
-            const formData = new FormData(loanForm);
-            try {
-                const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
-                const data = await res.json();
-                if(data.success){
+            
+            const formData = new FormData(this);
+            fetch("https://api.web3forms.com/submit", { method: "POST", body: formData })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.success){
+                        window.location.href = "https://pozyczka-prywatna.getzenpay.com/dziekuje.html";
+                    } else {
+                        alert("Błąd wysyłki, spróbuj ponownie.");
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    }
+                })
+                .catch(() => {
                     window.location.href = "https://pozyczka-prywatna.getzenpay.com/dziekuje.html";
-                } else {
-                    alert("Błąd wysyłki, spróbuj ponownie.");
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                }
-            } catch (err) {
-                window.location.href = "https://pozyczka-prywatna.getzenpay.com/dziekuje.html";
-            }
+                });
         });
+
+        // Supprimer l'erreur en temps réel quand l'utilisateur corrige
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                this.classList.remove('error');
+                const errorMsg = this.closest('.form-group')?.querySelector('.error-message');
+                if (errorMsg) errorMsg.style.display = 'none';
+            });
+            field.addEventListener('change', function() {
+                this.classList.remove('error');
+                const errorMsg = this.closest('.form-group')?.querySelector('.error-message');
+                if (errorMsg) errorMsg.style.display = 'none';
+            });
+        });
+
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const errorMsg = this.closest('.form-group')?.querySelector('.error-message');
+                if (errorMsg) errorMsg.style.display = 'none';
+            });
+        });
+
         const scrollReveal = () => {
             const elements = document.querySelectorAll('.scroll-reveal');
             elements.forEach(el => {
